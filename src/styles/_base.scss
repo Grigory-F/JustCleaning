@@ -1,0 +1,69 @@
+@use "helpers/variables" as var;
+@use "helpers/mixins" as mix;
+
+.block-header {
+    background-color: #f6f7f9;
+    align-items: center;
+    padding: 0.625rem 1.25rem;
+    transition: opacity 0.25s ease-out;
+}
+
+.block-title {
+    flex: 1 1 auto;
+    min-height: 1.75rem;
+    margin: 0;
+    font-size: 0.875rem;
+    font-weight: 600;
+    line-height: 1.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.0625rem;
+}
+.block {
+    margin-bottom: 1.875rem;
+    background-color: #fff;
+}
+
+
+.block.block-rounded {
+    border-radius: 0.3rem;
+}
+.block.block-rounded > .block-header {
+    border-top-left-radius: 0.25rem;
+    border-top-right-radius: 0.25rem;
+}
+.block-content {
+    transition: opacity 0.25s ease-out;
+    width: 100%;
+    margin: 0 auto;
+    padding: 1.25rem 1.25rem 1px;
+    overflow-x: visible;
+}
+.block-content.block-content-full {
+    padding-bottom: 1.25rem;
+}
+.block.block-rounded > .block-content:first-child {
+    border-top-left-radius: 0.25rem;
+    border-top-right-radius: 0.25rem;
+}
+.block-content.block-content-full {
+    padding-bottom: 1.25rem;
+}
+.block-content.block-content-sm.block-content-full {
+    padding-bottom: 0.625rem;
+}
+.block-content.block-content-sm {
+    padding-top: 0.625rem;
+}
+
+.item.item-rounded-lg {
+    border-radius: 1.5rem;
+}
+
+.item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 4rem;
+    height: 4rem;
+    transition: opacity 0.25s ease-out, transform 0.25s ease-out;
+}

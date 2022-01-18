@@ -1,0 +1,73 @@
+@use 'helpers/variables' as var;
+@use 'helpers/mixins' as mix;
+
+
+.fs-1 {
+    font-size: calc(1.35rem + 1.2vw) !important;
+}
+.fs-2 {
+    font-size: calc(1.3125rem + 0.75vw) !important;
+}
+.fs-3 {
+    font-size: calc(1.275rem + 0.3vw) !important;
+}
+.fs-4 {
+    font-size: 1.25rem !important;
+}
+.fs-5 {
+    font-size: 1.125rem !important;
+}
+.fs-6 {
+    font-size: 1rem !important;
+}
+.fs-base {
+    font-size: 1rem !important;
+}
+.fs-xs {
+    font-size: 0.75rem !important;
+}
+.fs-sm {
+    font-size: 0.875rem !important;
+}
+.fs-lg {
+    font-size: 1.25rem !important;
+}
+.fw-light {
+    font-weight: 300 !important;
+}
+.fw-lighter {
+    font-weight: lighter !important;
+}
+.fw-normal {
+    font-weight: 400 !important;
+}
+.fw-medium {
+    font-weight: 500 !important;
+}
+.fw-semibold {
+    font-weight: 600 !important;
+}
+.fw-bold {
+    font-weight: 700 !important;
+}
+.fw-bolder {
+    font-weight: bolder !important;
+}
+.bg-body-light {
+    background-color: #f6f7f9;
+}
+.opacity-0 {
+    opacity: 0!important
+}
+.opacity-25 {
+    opacity: .25!important
+}
+.opacity-50 {
+    opacity: .5!important
+}
+.opacity-75 {
+    opacity: .75!important
+}
+.opacity-100 {
+    opacity: 1!important
+}
