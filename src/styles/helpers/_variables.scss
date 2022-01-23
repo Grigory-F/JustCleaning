@@ -1,2 +1,18 @@
-$body-bg: #ebeef2;
-$body-color: #334155;
+$body-bg: var(--body-bg);
+$body-color: var(--body-color);
+$font-size-base: 0.875rem;
+$main: rgba(40, 53, 71, 0.3);
+$block: rgba(225, 225, 225, 0.75);
+
+
+
+$theme-colors: (
+    "setting": $main,
+    "block": $block,
+);
+
+:root {
+    --body-bg: #ebeef2;
+    --body-color: #334155;
+    --color-success: #334155;
+}

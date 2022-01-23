@@ -1,102 +1,142 @@
 <template>
-  <div id="app">
-    <header class="header px-3 d-flex align-items-center">
-      <div class="d-flex justify-content-between w-100">
-        <SystemIcons :name="'logo'" :width="130"></SystemIcons>
-        <div class="d-flex">
-          <b-button variant="success" class="mr-2">
-            <span class="button-text">Create order</span>
-            <font-awesome-icon :icon="['far', 'plus-square']" />
-          </b-button>
-          <b-button variant="success">
-            <font-awesome-icon :icon="['far', 'moon']" />
-          </b-button>
-        </div>
+  <div id="app" :class="[isDark ? 'dark-theme': '']">
+    <Header @changeTheme="changeTheme" />
+    <main class="main-container">
+      <UploadImage></UploadImage>
+      <CurrentOrder :goProper="goProper" />
+      <div class="content">
+        <b-row>
+          <b-col>
+            <div class="block block-rounded">
+              <div class="block-header d-flex">
+                <h3 class="block-title">CURRENT ORDER</h3>
+                <div class="block-options d-flex"></div>
+              </div>
+              <div class="block-content block-content-full">
+                <b-table borderless striped responsive :items="items" :fields="fields">
+                  <template #cell(name)="name">
+                    <a class="fw-medium" href="#" style="white-space:nowrap">{{ name.value}}</a>
+                  </template>
+
+                  <template #cell(was_the)="was" md="5">
+                    <span>{{ was.value }}</span>
+                  </template>
+                  <template #cell(priceDiscount)="data">
+                    <div style="white-space:nowrap">
+                      <span class="fw-medium">{{ data.item.price }} ₽</span>
+                      <span class="text-muted">- {{data.item.discount}}%</span>
+                    </div>
+                  </template>
+                  <template #cell(status)="status">
+                    <div
+                      class="d-flex"
+                      :class="[status.value == 'canselled' ? 'text-danger' : 'text-success']"
+                    >
+                      <span class="status-sign d-none d-md-block" href="#">{{ status.value }}</span>
+
+                      <font-awesome-icon
+                        :icon="['far', status.value == 'canselled' ? 'times-circle' : 'check-circle']"
+                        class="d-md-none m-auto"
+                        size="lg"
+                      />
+                    </div>
+                  </template>
+                </b-table>
+              </div>
+            </div>
+          </b-col>
+        </b-row>
       </div>
-    </header>
-    <b-container fluid tag="main" class="content">
-      <b-row>
-        <b-col>
-          <div class="block block-rounded">
-            <div class="block-header d-flex">
-              <h3 class="block-title">CURRENT ORDER</h3>
-              <div class="block-options d-flex">awddwa</div>
-            </div>
-            <div class="block-content block-content-full">
-              <b-row>
-                <b-col>
-                  <div class="inner-signs">
-                    <span class="text-muted">Addres</span>
-                    <a target="_blank" href="https://yandex.ru/maps/?ll=30.310182,59.951059&z=12&l=map">Карта Санкт-Петербурга</a>
-                    <p>awawdawdwad</p>
-                  </div>
-                  <div class="inner-signs">
-                    <span>Addres</span>
-                    <p>awawdawdwad</p>
-                  </div>
-                  <div class="inner-signs">
-                    <span>Addres</span>
-                    <p>awawdawdwad</p>
-                  </div>
-                </b-col>
-                <b-col>
-                  <div class="inner-signs">
-                    <span>Addres</span>
-                    <p>awawdawdwad</p>
-                  </div>
-                  <div class="inner-signs">
-                    <span>Addres</span>
-                    <p>awawdawdwad</p>
-                  </div>
-                  <div class="inner-signs">
-                    <span>Addres</span>
-                    <p>awawdawdwad</p>
-                  </div>
-                </b-col>
-              </b-row>
-            </div>
-          </div>
-        </b-col>
-      </b-row>
-    </b-container>
+    </main>
   </div>
 </template>
 
 
 
 <script>
+import Header from "@/components/Header.vue";
+import CurrentOrder from "@/components/CurrentOrder.vue";
+import UploadImage from "@/components/UploadImage.vue";
 export default {
-  data() {
-    return {
-      likes: 0,
-    };
+  components: {
+    Header,
+    CurrentOrder,
+    UploadImage,
+  }, 
+  methods: {
+    fullName(value) {
+      return `${value.first} ${value.last}`;
+    },
+    changeTheme(valueTheme) {
+      console.log("dawdaw");
+      this.isDark = !this.isDark;
+      /* if (valueTheme == "dark") {
+        
+        console.log("dawdaw");
+      } */
+    },
   },
   mounted() {
-    console.log(process.env.VUE_APP_SOMEKEY);
-  }
+    /* if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+      this.changeTheme("dark");
+    } */
+  },
+  data() {
+    return {
+      isDark: false,
+      goProper: {
+        name: { first: "Jane", last: "Doe" },
+        was_the:
+          "Ipsum molestias autem earum at rerum, aliquam unde maxime modi cumque.",
+        price: 42,
+        discount: 10,
+        status: "succses",
+        clientStatus: "regular",
+      },
+      fields: [
+        {
+          key: "name",
+          label: "Name",
+          formatter: "fullName",
+        },
+        {
+          key: "was_the",
+          label: "What was there",
+        },
+
+        { key: "priceDiscount", label: "Price" },
+        "status",
+      ],
+      items: [
+        {
+          name: { first: "John", last: "Doe" },
+          was_the: "Male",
+          price: 42,
+          discount: 10,
+          status: "canselled",
+        },
+        {
+          name: { first: "Jane", last: "Doe" },
+          was_the:
+            "Ipsum molestias autem earum at rerum, aliquam unde maxime modi cumque.",
+          price: 42,
+          discount: 10,
+          status: "canselled",
+        },
+        {
+          name: { first: "Jane", last: "Doe" },
+          was_the:
+            "Ipsum molestias autem earum at rerum, aliquam unde maxime modi cumque.",
+          price: 42,
+          discount: 10,
+          status: "succses",
+        },
+      ],
+    };
+  },
 };
 </script>
 
 
 <style lang="scss">
-.header {
-  height: 60px;
-  background-color: rgba(225, 225, 225, 0.75);
-  & > .main-title {
-  }
-  & .button-text {
-    margin-right: 0.5rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .header {
-    & .button-text {
-      display: none;
-    }
-  }
-}
-.content {
-  padding: 20px 0 0 0;
-}
 </style>
