@@ -27,11 +27,11 @@
                   <span class="text-muted">What to do</span>
                   <p class="fs-3 fw-medium">3 дивана, 2 подушки, 4 матраса</p>
                 </div>
-                <div class="inner-signs ">
+                <div class="inner-signs">
                   <span class="text-muted">Files</span>
                   <label class="drop-zone">
                     awddwaawd
-                    <input type="file" class="d-none w-100"/>
+                    <input type="file" class="d-none w-100" />
                   </label>
                 </div>
               </b-col>
@@ -55,6 +55,27 @@
               </b-col>
             </b-row>
           </div>
+          <div class="block-content block-content-full d-flex justify-content-between">
+            <div class="d-flex">
+              <b-button variant="success" class="mr-2 d-flex">
+                <span class="d-none d-sm-none d-md-inline">Complete</span>
+                <font-awesome-icon
+                  class="d-sm-inline-block d-md-none fs-4 m-auto"
+                  :icon="['far', 'check-circle']"
+                />
+              </b-button>
+              <b-button variant="setting d-flex">
+                <span class="d-none d-sm-none d-md-inline">Cansel order</span>
+                <font-awesome-icon
+                  class="d-sm-inline-block d-md-none fs-4 m-auto"
+                  :icon="['far', 'times-circle']"
+                />
+              </b-button>
+            </div>
+            <b-button variant="setting">
+                <SystemIcons class="interface-icons" :name="'setting'" :width="20"></SystemIcons>
+              </b-button>
+          </div>
         </div>
       </b-col>
     </b-row>
@@ -63,7 +84,6 @@
 
 <script>
 export default {
-  
   props: ["goProper"],
 };
 </script>

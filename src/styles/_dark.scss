@@ -1,13 +1,10 @@
-@import 'helpers/variables';
-
-
-
-
-
-
+@import "helpers/variables";
 
 .dark-theme {
-        --body-bg: red;
-        --body-color: blue;
-        --color-success: red;
+        --body-bg: #19222D;
+        --body-color: #DDE2E9;
+        --block: #1F2937;
+        --block-comp: #2A384B;
+        --header: #1F2937;
+        --setting: #FFFFFF;
 }

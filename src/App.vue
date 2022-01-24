@@ -1,8 +1,8 @@
 <template>
-  <div id="app" :class="[isDark ? 'dark-theme': '']">
+  <div id="app">
+    <!-- :class="[isDark ? 'dark-theme': '']" -->
     <Header @changeTheme="changeTheme" />
     <main class="main-container">
-      <UploadImage></UploadImage>
       <CurrentOrder :goProper="goProper" />
       <div class="content">
         <b-row>
@@ -56,21 +56,22 @@
 <script>
 import Header from "@/components/Header.vue";
 import CurrentOrder from "@/components/CurrentOrder.vue";
-import UploadImage from "@/components/UploadImage.vue";
+/* import UploadImage from "@/components/UploadImage.vue"; */
 export default {
   components: {
     Header,
     CurrentOrder,
-    UploadImage,
-  }, 
+    /* UploadImage, */
+  },
   methods: {
     fullName(value) {
       return `${value.first} ${value.last}`;
     },
     changeTheme(valueTheme) {
       console.log("dawdaw");
-      this.isDark = !this.isDark;
-      /* if (valueTheme == "dark") {
+      /* this.isDark = !this.isDark; */
+      document.body.classList.toggle("dark-theme");
+      /*  if (valueTheme == "dark") {
         
         console.log("dawdaw");
       } */
@@ -139,4 +140,5 @@ export default {
 
 
 <style lang="scss">
+
 </style>

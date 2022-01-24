@@ -1,18 +1,34 @@
 $body-bg: var(--body-bg);
 $body-color: var(--body-color);
 $font-size-base: 0.875rem;
-$main: rgba(40, 53, 71, 0.3);
-$block: rgba(225, 225, 225, 0.75);
+$setting: var(--setting);
+$block: var(--block);
+$block-comp: var(--block-comp);
+$header: var(--header);
+$interface-icons: #2F3C4E;
+
+$btn-border-width: 0px;
 
 
+$btn-padding-y: 10px;
+$btn-padding-x: 15px;
 
 $theme-colors: (
-    "setting": $main,
-    "block": $block,
+    "setting": rgba(40, 53, 71, 0.3),
+    "block": white,
+    "body-bg": #ebeef2,
+    "body-color": #334155,
+    "block-comp": #f6f7f9,
+    "header": rgba(225, 225, 225, 0.75),
+    "interface-icons": #2F3C4E,
 );
 
-:root {
+.interface-icons {
+    fill:$interface-icons;
+}
+
+/* :root {
     --body-bg: #ebeef2;
     --body-color: #334155;
     --color-success: #334155;
-}
+} */
