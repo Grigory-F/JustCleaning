@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <!-- :class="[isDark ? 'dark-theme': '']" -->
-    <Header @changeTheme="changeTheme" />
+    <Header @changeTheme="toggleTheme" />
     <main class="main-container">
       <CurrentOrder :goProper="goProper" />
       <div class="content">
@@ -67,24 +67,24 @@ export default {
     fullName(value) {
       return `${value.first} ${value.last}`;
     },
-    changeTheme(valueTheme) {
-      console.log("dawdaw");
-      /* this.isDark = !this.isDark; */
+    toggleTheme(value) {
       document.body.classList.toggle("dark-theme");
-      /*  if (valueTheme == "dark") {
-        
-        console.log("dawdaw");
-      } */
     },
   },
   mounted() {
-    /* if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
-      this.changeTheme("dark");
-    } */
+    if (this.storageValue) {
+      document.body.classList.add("dark-theme");
+    } else if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+      if (localStorage.getItem("darkTheme") === null) {
+        document.body.classList.add("dark-theme");
+        localStorage.setItem("darkTheme", true);
+      }
+    }
   },
+  created() {},
   data() {
     return {
-      isDark: false,
+      storageValue: localStorage.getItem("darkTheme") === "true",
       goProper: {
         name: { first: "Jane", last: "Doe" },
         was_the:
@@ -140,5 +140,4 @@ export default {
 
 
 <style lang="scss">
-
 </style>

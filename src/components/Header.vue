@@ -7,8 +7,8 @@
           <span class="d-none d-sm-none d-md-inline">Create order</span>
           <font-awesome-icon class="d-flex d-sm-flex d-md-none fs-4 align-items-center" :icon="['far', 'plus-square']" />
         </b-button>
-        <b-button @click="changeTheme" :class="[switchTheme == true ? 'bg-light': '']" variant="setting" class="border-0">
-          <font-awesome-icon class="fs-4 d-flex align-items-center" :class="[switchTheme == true ? 'text-dark': '']" :icon="['fas', 'moon']" />
+        <b-button @click="changeTheme" :class="{'switchTheme': 'bg-light'}" variant="setting" class="border-0">
+          <font-awesome-icon class="fs-4 d-flex align-items-center" :class="{'switchTheme': 'text-dark'}" :icon="['fas', 'moon']" />
         </b-button>
       </div>
     </div>
@@ -24,9 +24,9 @@ export default {
   },
   methods: {
     changeTheme() {
-      this.switchTheme = !this.switchTheme
-      localStorage.setItem("darkTheme", this.switchTheme);
-      this.$emit('changeTheme', this.switchTheme);
+      let switches = localStorage.getItem("darkTheme") === "false"
+      localStorage.setItem("darkTheme", switches);
+      this.$emit('changeTheme', switches);
     },
   },
   mounted() {
