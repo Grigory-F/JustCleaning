@@ -4,7 +4,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/JustCleaning/css/app.24dfbc64.css"
   },
   {
-    "revision": "c672b0cd85c69961d04dc3ffd1fb9288",
+    "revision": "1ce3bb3fa8477702c1a0440828999cf7",
     "url": "/JustCleaning/index.html"
   },
   {
@@ -16,7 +16,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/JustCleaning/js/chunk-vendors.e88b8801.js"
   },
   {
-    "revision": "4f692f6bdf21a332424b52af3865a4e6",
+    "revision": "2925356518db90dc6b17b1fde006a1dc",
     "url": "/JustCleaning/manifest.json"
   },
   {
