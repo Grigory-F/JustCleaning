@@ -7,7 +7,7 @@
             <h3 class="block-title">CURRENT ORDER</h3>
             <div class="block-options d-flex"></div>
           </div>
-          <div class="block-content block-content-full">
+          <form class="block-content block-content-full">
             <b-row>
               <b-col md="6" sm="12">
                 <div class="inner-signs-order mb-3">
@@ -29,10 +29,31 @@
                 </div>
                 <div class="inner-signs">
                   <span class="text-muted">Files</span>
-                  <label class="drop-zone">
-                    awddwaawd
-                    <input type="file" class="d-none w-100" />
-                  </label>
+                  <div class="drop-grid">
+                    <div class="box-images" v-for="image of arrayFiles" :key="image">
+                      <picture>
+                        <img class="box-images__images" :src="image" />
+                      </picture>
+                      <div class="box-images__coverage">
+                        <div @click="deleteImage(image)" class="box-images__inner-icon">
+                          <SystemIcons :name="'close'" :width="30"></SystemIcons>
+                        </div>
+                      </div>
+                    </div>
+                    <label class="drop-zone mb-0">
+                      <input
+                        type="file"
+                        class="d-none"
+                        accept="image/*"
+                        @change="changeImages"
+                        multiple
+                      />
+                      <span
+                        
+                        class="drop-zone__sign fs-2 text-muted text-center"
+                      >{{ !arrayFiles.length ? "Drop or select files" : '+'}}</span>
+                    </label>
+                  </div>
                 </div>
               </b-col>
 
@@ -54,9 +75,10 @@
                 </div>
               </b-col>
             </b-row>
-          </div>
+          </form>
           <div class="block-content block-content-full d-flex justify-content-between">
             <div class="d-flex">
+              <input type="submit" />
               <b-button variant="success" class="mr-2 d-flex">
                 <span class="d-none d-sm-none d-md-inline">Complete</span>
                 <font-awesome-icon
@@ -73,8 +95,8 @@
               </b-button>
             </div>
             <b-button variant="setting">
-                <SystemIcons class="interface-icons" :name="'setting'" :width="20"></SystemIcons>
-              </b-button>
+              <SystemIcons class="interface-icons" :name="'setting'" :width="20"></SystemIcons>
+            </b-button>
           </div>
         </div>
       </b-col>
@@ -85,8 +107,35 @@
 <script>
 export default {
   props: ["goProper"],
+  data() {
+    return {
+      arrayFiles: [],
+    };
+  },
+  methods: {
+    /* async fething() {
+      const fethingg = await fetch("/api/posts");
+      const data = await fethingg.json();
+      console.table(data);
+    }, */
+    changeImages(e) {
+      const files = Array.from(e.target.files);
+      files.forEach((file) => {
+        const reader = new FileReader();
+        reader.readAsDataURL(file);
+        reader.onload = (event) => {
+          this.arrayFiles.push(event.target.result);
+          this.arrayFiles.filter((item, index) => {
+            console.log(item);
+            return this.arrayFiles.indexOf(item) == index;
+          });
+        };
+      });
+    },
+    deleteImage(images) {
+      this.arrayFiles.splice(this.arrayFiles.indexOf(images), 1);
+    },
+  },
 };
 </script>
 
-<style>
-</style>

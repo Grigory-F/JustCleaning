@@ -1,5 +1,13 @@
 module.exports = {
     publicPath: '/JustCleaning/',
+    devServer: {
+        proxy: {
+            '^/api': {
+                target: 'http://localhost:3000',
+                changeOrigin: true
+            },
+        },
+    },
     pwa: {
         name: 'Just Cleaning',
         iconPaths: {
@@ -8,10 +16,12 @@ module.exports = {
             appleTouchIcon: 'img/icons/favicon152x152.png',
             maskIcon: 'img/icons/monochrome.svg',
             msTileImage: 'img/icons/favicon144x144.png',
-
-
-
         },
+
+        workboxPluginMode: 'GenerateSW',
+        assetsVersion: "",
+
+
         name: 'Just Cleaning',
         themeColor: '#0096AF',
         msTileColor: '#ffffff',
@@ -19,10 +29,11 @@ module.exports = {
         appleMobileWebAppStatusBarStyle: 'black-translucent',
         manifestOptions: {
             background_color: '#42B883',
-            name: this.name,
-            short_name: this.name,
-            start_url: this.publicPath,
+            name: 'Just Cleaning',
+            short_name: 'Just Cleaning',
+            start_url: "/",
             display: 'fullscreen',
+            orientation: "any",
             theme_color: this.themeColor,
             icons: [
                 { 'src': './img/icons/android-chrome-192x192.png', 'sizes': '192x192', 'type': 'image/png' },

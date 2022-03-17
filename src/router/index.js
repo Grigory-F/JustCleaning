@@ -1,19 +1,21 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
+import FillWorkDay from '@/views/FillWorkDay.vue'
+import Home from '@/views/Home.vue'
 
 Vue.use(VueRouter)
 
 const routes = [
-  /* {
+  {
     path: '/',
     name: 'Home',
-    component: Home
+    component: Home,
   },
   {
-    path: '/about',
-    name: 'About',
-    component: () => import( '../views/About.vue')
-  } */
+    path: '/work-days',
+    name: 'work-days',
+    component: FillWorkDay,
+  }
 ]
 
 const router = new VueRouter({
