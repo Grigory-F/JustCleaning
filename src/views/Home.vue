@@ -17,16 +17,7 @@ export default {
     Table,
   },
   methods: {},
-  mounted() {
-    if (this.storageValue) {
-      document.body.classList.add("dark-theme");
-    } else if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
-      if (localStorage.getItem("darkTheme") === null) {
-        document.body.classList.add("dark-theme");
-        localStorage.setItem("darkTheme", true);
-      }
-    }
-  },
+  
   created() {},
   data() {
     return {

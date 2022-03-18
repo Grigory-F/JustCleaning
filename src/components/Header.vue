@@ -34,6 +34,7 @@ export default {
     return {
       switches: false,
       dialogVisible: false,
+      storageValue: localStorage.getItem("darkTheme") === "true",
     };
   },
   methods: {
@@ -41,10 +42,23 @@ export default {
       this.switches = localStorage.getItem("darkTheme") === "false";
       console.log(this.switches);
       localStorage.setItem("darkTheme", this.switches);
-      this.$emit("changeTheme", this.switches);
+      if (this.switches) {
+        document.body.classList.toggle("dark-theme");
+      } else {
+        document.body.classList.toggle("dark-theme");
+      }
     },
   },
-  mounted() {},
+  mounted() {
+    if (this.storageValue) {
+      document.body.classList.add("dark-theme");
+    } else if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+      if (localStorage.getItem("darkTheme") === null) {
+        document.body.classList.add("dark-theme");
+        localStorage.setItem("darkTheme", true);
+      }
+    }
+  },
 };
 </script>
 
