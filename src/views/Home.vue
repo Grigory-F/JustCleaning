@@ -1,9 +1,9 @@
 <template>
   <!-- :class="[isDark ? 'dark-theme': '']" -->
-  <main class="main-container">
+  <div>
     <CurrentOrder :goProper="goProper" />
     <Table></Table>
-  </main>
+  </div>
 </template>
 
 
@@ -17,7 +17,7 @@ export default {
     Table,
   },
   methods: {},
-  
+
   created() {},
   data() {
     return {

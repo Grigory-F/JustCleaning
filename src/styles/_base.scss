@@ -1,6 +1,17 @@
 @use "helpers/variables" as var;
 @use "helpers/mixins" as mix;
 
+
+#app {
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    width: 100%;
+    min-width: 320px;
+    min-height: 100vh;
+}
+
+
 .box-images {
     width: 100%;
     position: relative;

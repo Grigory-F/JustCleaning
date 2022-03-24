@@ -1,10 +1,20 @@
 <template>
   <header class="header d-flex align-items-center">
     <div class="d-flex justify-content-between w-100">
-      <SystemIcons :name="'logo'" :width="125"></SystemIcons>
-      <div class="d-flex"><!-- @click="$router.push('/work-days')" -->
+      <router-link to="/" >
+        <SystemIcons :name="'logo'" :width="125"></SystemIcons>
+      </router-link>
+      <div class="d-flex">
+        <!-- @click="$router.push('/work-days')" -->
         <b-link to="/work-days" class="btn-success btn mr-2">
           <span class="d-none d-sm-none d-md-inline">Create order</span>
+          <font-awesome-icon
+            class="d-flex d-sm-flex d-md-none fs-4 align-items-center"
+            :icon="['far', 'plus-square']"
+          />
+        </b-link>
+        <b-link to="/create-article" class="btn-success btn mr-2">
+          <span class="d-none d-sm-none d-md-inline">Create articles</span>
           <font-awesome-icon
             class="d-flex d-sm-flex d-md-none fs-4 align-items-center"
             :icon="['far', 'plus-square']"
@@ -27,7 +37,7 @@
 </template>
 
 <script>
-import Popup from './Popup.vue';
+import Popup from "./Popup.vue";
 export default {
   components: { Popup },
   data() {

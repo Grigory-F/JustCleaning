@@ -20,6 +20,7 @@
     "vue-cal": "^3.10.1",
     "vue-router": "^3.2.0",
     "vue-worker": "^1.2.1",
+    "vue2-editor": "^2.10.3",
     "vuex": "^3.4.0"
   },
   "devDependencies": {

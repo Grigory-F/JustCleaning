@@ -2,10 +2,18 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import FillWorkDay from '@/views/FillWorkDay.vue'
 import Home from '@/views/Home.vue'
+import PageNotFound from '@/views/PageNotFound.vue'
+import Authentication from '@/views/Authentication'
+import CreateArticles from '@/views/CreateArticles.vue'
 
 Vue.use(VueRouter)
 
 const routes = [
+  {
+    path: '/auth',
+    name: 'Authentication',
+    component: Authentication,
+  },
   {
     path: '/',
     name: 'Home',
@@ -13,8 +21,21 @@ const routes = [
   },
   {
     path: '/work-days',
-    name: 'work-days',
+    name: 'WorkDays',
     component: FillWorkDay,
+  },
+  {
+    path: '/create-article',
+    name: 'CreateArticle',
+    component: CreateArticles,
+  },
+  { 
+    path: '/404', 
+    name: 'PageNotFound', 
+    component: PageNotFound, 
+  }, { 
+    path: '*', 
+    redirect: '/404' 
   }
 ]
 
