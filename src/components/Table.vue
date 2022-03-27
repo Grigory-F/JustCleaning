@@ -1,67 +1,45 @@
 <template>
   <div class="content">
-        <b-row>
-          <b-col>
-            <div class="block block-rounded">
-              <div class="block-header d-flex">
-                <h3 class="block-title">CURRENT ORDER</h3>
-                <div class="block-options d-flex"></div>
-              </div>
-              <div class="block-content block-content-full">
-                <b-table borderless striped responsive :items="items" :fields="fields">
-                  <template #cell(name)="name">
-                    <a class="fw-medium" href="#" style="white-space:nowrap">{{ name.value}}</a>
-                  </template>
-
-                  <template #cell(was_the)="was" md="5">
-                    <span>{{ was.value }}</span>
-                  </template>
-                  <template #cell(priceDiscount)="data">
-                    <div style="white-space:nowrap">
-                      <span class="fw-medium">{{ data.item.price }} ₽</span>
-                      <span class="text-muted">- {{data.item.discount}}%</span>
-                    </div>
-                  </template>
-                  <template #cell(status)="status">
-                    <div
-                      class="d-flex"
-                      :class="[status.value == 'canselled' ? 'text-danger' : 'text-success']"
-                    >
-                      <span class="status-sign d-none d-md-block" href="#">{{ status.value }}</span>
-
-                      <font-awesome-icon
-                        :icon="['far', status.value == 'canselled' ? 'times-circle' : 'check-circle']"
-                        class="d-md-none m-auto"
-                        size="lg"
-                      />
-                    </div>
-                  </template>
-                </b-table>
-              </div>
+    <div class="row">
+      <div class="col">
+        <div class="block block-rounded">
+          <div class="block-header d-flex">
+            <h3 class="block-title">CURRENT ORDER</h3>
+            <div class="block-options d-flex"></div>
+          </div>
+          <div class="block-content block-content-full">
+            <div class="table-responsive">
+              <table class="table table-borderless table-striped table-responsive">
+                <thead>
+                  <tr>
+                    <th scope="col">First</th>
+                    <th scope="col">Last</th>
+                    <th scope="col">Handle</th>
+                  </tr>
+                </thead>
+                <tbody class="table-striped">
+                  <tr v-for="(item, index) of items" :key="index">
+                    <td style="min-width: 250px" class="p-4">{{item.was_the}}</td>
+                    <td class="p-4">{{item.price}}</td>
+                    <td
+                      class="p-4"
+                      :class="[item.status == 'canselled' ? 'text-danger' : '']"
+                    >{{item.discount}}</td>
+                  </tr>
+                </tbody>
+              </table>
             </div>
-          </b-col>
-        </b-row>
+          </div>
+        </div>
       </div>
+    </div>
+  </div>
 </template>
 
 <script>
 export default {
-data() {
+  data() {
     return {
-        fields: [
-        {
-          key: "name",
-          label: "Name",
-          formatter: "fullName",
-        },
-        {
-          key: "was_the",
-          label: "What was there",
-        },
-
-        { key: "priceDiscount", label: "Price" },
-        "status",
-      ],
       items: [
         {
           name: { first: "John", last: "Doe" },
@@ -73,7 +51,7 @@ data() {
         {
           name: { first: "Jane", last: "Doe" },
           was_the:
-            "Ipsum molestias autem earum at rerum, aliquam unde maxime modi cumque.",
+            "Ipsum molestias autem earum at rerum, aliquam unde maxime modi cumquew.",
           price: 42,
           discount: 10,
           status: "canselled",
@@ -81,17 +59,16 @@ data() {
         {
           name: { first: "Jane", last: "Doe" },
           was_the:
-            "Ipsum molestias autem earum at rerum, aliquam unde maxime modi cumque.",
+            "Ipsum molestias autem earum at rerum, aliquam unde maxime modi cumquee.",
           price: 42,
           discount: 10,
           status: "succses",
         },
       ],
-    }
-}
-}
+    };
+  },
+};
 </script>
 
 <style>
-
 </style>

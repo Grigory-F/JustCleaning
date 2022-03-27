@@ -1,36 +1,37 @@
 <template>
   <header class="header d-flex align-items-center">
     <div class="d-flex justify-content-between w-100">
-      <router-link to="/" >
+      <router-link to="/">
         <SystemIcons :name="'logo'" :width="125"></SystemIcons>
       </router-link>
       <div class="d-flex">
         <!-- @click="$router.push('/work-days')" -->
-        <b-link to="/work-days" class="btn-success btn mr-2">
+        <router-link role="button" to="/work-days" class="btn-success btn me-2 d-flex">
           <span class="d-none d-sm-none d-md-inline">Create order</span>
           <font-awesome-icon
-            class="d-flex d-sm-flex d-md-none fs-4 align-items-center"
+            class="d-flex d-sm-flex d-md-none fs-4 align-self-center"
             :icon="['far', 'plus-square']"
           />
-        </b-link>
-        <b-link to="/create-article" class="btn-success btn mr-2">
+        </router-link>
+        <router-link role="button" to="/create-article" class="btn-success btn me-2 d-flex">
           <span class="d-none d-sm-none d-md-inline">Create articles</span>
           <font-awesome-icon
-            class="d-flex d-sm-flex d-md-none fs-4 align-items-center"
+            class="d-flex d-sm-flex d-md-none fs-4 align-self-center"
             :icon="['far', 'plus-square']"
           />
-        </b-link>
-        <b-button
+        </router-link>
+        <button
+          type="button"
           @click="changeTheme"
           :class="[switches ? 'bg-light' : 'bg-dark']"
-          class="border-0"
+          class="border-0 btn"
         >
           <font-awesome-icon
             class="fs-4 d-flex align-items-center"
             :class="[switches ?'text-dark'  :'text-light' ]"
             :icon="['fas', 'moon']"
           />
-        </b-button>
+        </button>
       </div>
     </div>
   </header>
@@ -67,10 +68,8 @@ export default {
         document.body.classList.add("dark-theme");
         localStorage.setItem("darkTheme", true);
       }
+      console.log("awdwadwa awdawdfrf");
     }
   },
 };
 </script>
-
-<style lang="scss">
-</style>

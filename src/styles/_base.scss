@@ -1,5 +1,4 @@
-@use "helpers/variables" as var;
-@use "helpers/mixins" as mix;
+/* @use "helpers/variables" as var; */
 
 
 #app {
@@ -11,6 +10,9 @@
     min-height: 100vh;
 }
 
+.interface-icons {
+    fill: var(--bs-interface-icons)
+}
 
 .box-images {
     width: 100%;
@@ -118,7 +120,7 @@
 }
 .header {
     height: 60px;
-    background-color: var.$header;
+    background-color: var(--bs-header);
     padding: 0 1rem;
 }
 
@@ -145,7 +147,7 @@
 }
 
 .block-header {
-    background-color: var.$block-comp;
+    background-color: var(--bs-block-component);
     align-items: center;
     padding: 0.625rem 1.25rem;
     transition: opacity 0.25s ease-out;
@@ -163,7 +165,7 @@
 }
 .block {
     margin-bottom: 1.875rem;
-    background-color: var.$block;
+    background-color: var(--bs-block);
 }
 
 .block.block-rounded {

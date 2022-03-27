@@ -5,8 +5,7 @@ import router from './router'
 import store from './store'
 
 Vue.config.productionTip = false
-import { BootstrapVue } from 'bootstrap-vue'
-Vue.use(BootstrapVue)
+
 
 
 import SystemIcons from "./components/SystemIcons.vue"

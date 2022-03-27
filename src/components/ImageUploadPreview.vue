@@ -16,8 +16,8 @@
         class="drop-zone__sign fs-2 text-muted text-center"
       >{{ !arrayFiles.length ? "Drop or select files" : '+'}}</span>
     </label>
-    <div @click="onsubmit">Отправить</div>
-    <progress max="100" min="10"></progress>
+    <!-- <div @click="onsubmit">Отправить</div>
+    <progress max="100" min="10"></progress> -->
   </div>
 </template>
 

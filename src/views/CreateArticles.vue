@@ -1,22 +1,34 @@
 <template>
   <div class="content">
-    <b-row>
-      <b-col>
+    <div class="row">
+      <div class="col">
         <div class="block block-rounded">
           <div class="block-header d-flex">
-            <h3 class="block-title">CURRENT ORDER</h3>
+            <h3 class="block-title">CREATE ARTICLE</h3>
             <div class="block-options d-flex"></div>
           </div>
           <div class="block-content block-content-full">
             <div class="mb-4">
-              <label class="mb-1">Title</label>
-              <textarea class="d-block text-area form-control bg-transparent text-main" maxlength="140"></textarea>
+              <label class="mb-1 text-muted">Title</label>
+              <textarea
+                class="d-block text-area form-control bg-transparent text-body-color"
+                maxlength="140"
+              ></textarea>
+            </div>
+            <div class="mb-4">
+              <label class="mb-1 text-muted">Employee level</label>
+              <select class="d-block p-3 fs-5 w-100 bg-transparent text-body-bg">
+                <option class value="all">All</option>
+                <option class value="beginner">Beginner</option>
+                <option class="text-primary" value="middle">Middle</option>
+                <option class="text-success" value="profi">Profi</option>
+              </select>
             </div>
             <VueEditor :editor-toolbar="customToolbar"></VueEditor>
           </div>
         </div>
-      </b-col>
-    </b-row>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -40,9 +52,9 @@ export default {
 
 <style>
 .text-area {
-    resize: none;
-    /* height: 70px; */
-    width: 100%;
-    outline: none;
+  resize: none;
+  /* height: 70px; */
+  width: 100%;
+  outline: none;
 }
 </style>
