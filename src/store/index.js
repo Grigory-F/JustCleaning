@@ -1,5 +1,7 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import { authModule } from './store-module/authModule'
+import axios from 'axios'
 
 Vue.use(Vuex)
 
@@ -8,8 +10,12 @@ export default new Vuex.Store({
   },
   mutations: {
   },
+  getters: {
+    
+  },
   actions: {
   },
   modules: {
+    auth: authModule
   }
 })
