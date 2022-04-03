@@ -1,11 +1,12 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import { authModule } from '../store/store-module/authModule.js'
+import store from '../store/index.js'
 import FillWorkDay from '@/views/FillWorkDay'
 import Home from '@/views/Home'
 import PageNotFound from '@/views/PageNotFound'
 import Authentication from '@/views/Authentication'
 import CreateArticles from '@/views/CreateArticles'
+import Base from '@/views/Base'
 
 Vue.use(VueRouter)
 
@@ -19,31 +20,35 @@ const routes = [
     path: '/',
     name: 'Home',
     component: Home,
+    redirect: '/base',
     meta: {
       requiresAuth: true
     },
+    children: [
+      {
+        path: '/base',
+        name: 'Base',
+        component: Base,
+      },
+      {
+        path: '/work-days',
+        name: 'WorkDays',
+        component: FillWorkDay,
+      },
+      {
+        path: '/create-article',
+        name: 'CreateArticle',
+        component: CreateArticles,
+      },
+    ]
   },
-  {
-    path: '/work-days',
-    name: 'WorkDays',
-    component: FillWorkDay,
-    meta: {
-      requiresAuth: true
-    },
-  },
-  {
-    path: '/create-article',
-    name: 'CreateArticle',
-    component: CreateArticles,
-    meta: {
-      requiresAuth: true
-    },
-  },
+
   {
     path: '/404',
     name: 'PageNotFound',
     component: PageNotFound,
-  }, {
+  },
+  {
     path: '*',
     redirect: '/404'
   }
@@ -57,7 +62,7 @@ const router = new VueRouter({
 
 router.beforeEach((to, from, next) => {
   if (to.matched.some(record => record.meta.requiresAuth)) {
-    if (authModule.getters.isLoggedIn) {
+    if (store.getters.isLoggedIn) {
       next()
       return
     }

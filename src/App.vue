@@ -1,36 +1,26 @@
 <template>
   <div id="app">
-    <main class="main-container">
-      <!-- :class="[isDark ? 'dark-theme': '']" -->
-      <Header />
-      <span v-if="isLoggedIn">
-        |
-        <a @click="logout">Logout</a>
-      </span>
       <router-view></router-view>
-    </main>
   </div>
 </template>
 
 <script>
-import Header from "@/components/Header.vue";
+import { mapGetters } from "vuex";
 export default {
-  components: {
-    Header,
-  },
   data: () => ({
     info: null,
   }),
-  computed: {
-    isLoggedIn: function () {
-      return this.$store.getters.isLoggedIn;
-    },
+  beforeMount() {
+    this.$store.dispatch("initTheme");
   },
-  methods: {
-    logout: function () {
-      this.$store.dispatch("logout").then(() => {
-        this.$router.push("/auth");
-      });
+  computed: {
+    ...mapGetters({ theme: "getTheme" }),
+  },
+  watch: {
+    theme(newTheme, oldTheme) {
+      newTheme === "light"
+        ? document.body.classList.remove("dark-theme")
+        : document.body.classList.add("dark-theme");
     },
   },
   created: function () {

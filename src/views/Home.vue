@@ -1,24 +1,30 @@
 <template>
-  <!-- :class="[isDark ? 'dark-theme': '']" -->
-  <div>
-    <CurrentOrder :goProper="goProper" />
-    <Table></Table>
-  </div>
+  <main class="main-container">
+    <Header />
+    <router-view></router-view>
+  </main>
 </template>
 
 
 
 <script>
-import CurrentOrder from "@/components/CurrentOrder.vue";
-import Table from "@/components/Table.vue";
+import Header from "@/components/Header.vue";
 export default {
   components: {
-    CurrentOrder,
-    Table,
+    Header,
   },
-  methods: {},
-
-  created() {},
+ computed: {
+    isLoggedIn: function () {
+      return this.$store.getters.isLoggedIn;
+    },
+  },
+  methods: {
+    logout: function () {
+      this.$store.dispatch("logout").then(() => {
+        this.$router.push("/auth");
+      });
+    },
+  },
   data() {
     return {
       newLet: "",
@@ -32,20 +38,6 @@ export default {
         status: "succses",
         clientStatus: "regular",
       },
-      fields: [
-        {
-          key: "name",
-          label: "Name",
-          formatter: "fullName",
-        },
-        {
-          key: "was_the",
-          label: "What was there",
-        },
-
-        { key: "priceDiscount", label: "Price" },
-        "status",
-      ],
       items: [
         {
           name: { first: "John", last: "Doe" },

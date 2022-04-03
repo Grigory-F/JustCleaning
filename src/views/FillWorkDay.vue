@@ -1,37 +1,14 @@
 <template>
-  <div class="containerrr">
-    <div class="containerrr__item">
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae, perferendis rerum nostrum, aperiam voluptatem fuga temporibus eius nisi illo magni perspiciatis asperiores!</p>
-      <div class="containerrr__buuton"></div>
-    </div>
-    <div class="containerrr__item">
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae, perferendis rerum nostrum, aperiam voluptatem fuga temporibus eius nisi illo magni perspiciatis asperiores!</p>
-      <div class="containerrr__buuton"></div>
-    </div>
-    <div class="containerrr__item">
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae, perferendis rerum nostrum, aperiam voluptatem fuga temporibus eius nisi illo magni perspiciatis asperiores!</p>
-      <div class="containerrr__buuton"></div>
-    </div>
-    <div class="containerrr__item">
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae, perferendis rerum nostrum, aperiam voluptatem fuga temporibus eius nisi illo magni perspiciatis asperiores!</p>
-      <div class="containerrr__buuton"></div>
-    </div>
-    <div class="containerrr__item">
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae, perferendis rerum nostrum, aperiam voluptatem fuga temporibus eius nisi illo magni perspiciatis asperiores!</p>
-      <div class="containerrr__buuton"></div>
-    </div>
-  </div>
-  <!-- <vue-cal
+  <vue-cal
     selected-date="2018-11-19"
     :time-from="10 * 60"
     :time-to="23 * 60"
     :disable-views="['years', 'year', 'month']"
-    hide-weekends
     :editable-events="{ title: false, drag: false, resize: true, delete: true, create: true }"
     :min-event-width="minEventWidth"
     :events="events"
     :on-event-create="onEventCreate"
-  >/></vue-cal>-->
+  >/></vue-cal>
 </template>
 
 <script>
@@ -100,33 +77,5 @@ export default {
 </script>
 
 
-<style lang="scss">
-.containerrr {
-  width: 100%;
-  padding: 30px;
-  background-color: blue;
-  display: flex;
-  flex-wrap: wrap;
-  &__item {
-    color: white;
-    background-color: red;
-    margin-right: 10px;
-    margin-bottom: 10px;
-    flex-shrink: 1;
-    flex-grow: 1;
-    flex-basis: 300px;
-  }
 
-  &__buuton {
-  }
-}
 
-/* .vuecal__event {
-  background-color: #0096af;
-  color: white;
-  font-size: 20px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-} */
-</style>
