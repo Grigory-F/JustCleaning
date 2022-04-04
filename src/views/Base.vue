@@ -2,7 +2,7 @@
   <div>
       <p style="margin: 0 auto" v-if="isLoggedIn">
         |
-        <a @click="logout">Logout</a>
+        <a @click="logout">Logousssst</a>
       </p>
     <CurrentOrder :goProper="goProper" />
     <ArticlesList></ArticlesList>
