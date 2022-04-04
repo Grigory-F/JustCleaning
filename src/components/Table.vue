@@ -1,39 +1,27 @@
 <template>
-  <div class="content">
-    <div class="row">
-      <div class="col">
-        <div class="block block-rounded">
-          <div class="block-header d-flex">
-            <h3 class="block-title">CURRENT ORDER</h3>
-            <div class="block-options d-flex"></div>
-          </div>
-          <div class="block-content block-content-full">
-            <div class="table-responsive">
-              <table class="table table-borderless table-striped table-responsive">
-                <thead>
-                  <tr>
-                    <th scope="col">First</th>
-                    <th scope="col">Last</th>
-                    <th scope="col">Handle</th>
-                  </tr>
-                </thead>
-                <tbody class="table-striped">
-                  <tr v-for="(item, index) of items" :key="index">
-                    <td style="min-width: 250px" class="p-4">{{item.was_the}}</td>
-                    <td class="p-4">{{item.price}}</td>
-                    <td
-                      class="p-4"
-                      :class="[item.status == 'canselled' ? 'text-danger' : '']"
-                    >{{item.discount}}</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
-        </div>
-      </div>
+  <BaseBlock :blockTitle="'Previous Orders'">
+    <div class="table-responsive">
+      <table class="table table-borderless table-striped table-responsive">
+        <thead>
+          <tr>
+            <th scope="col">First</th>
+            <th scope="col">Last</th>
+            <th scope="col">Handle</th>
+          </tr>
+        </thead>
+        <tbody class="table-striped">
+          <tr v-for="(item, index) of items" :key="index">
+            <td style="min-width: 250px" class="p-4">{{item.was_the}}</td>
+            <td class="p-4">{{item.price}}</td>
+            <td
+              class="p-4"
+              :class="[item.status == 'canselled' ? 'text-danger' : '']"
+            >{{item.discount}}</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
-  </div>
+  </BaseBlock>
 </template>
 
 <script>

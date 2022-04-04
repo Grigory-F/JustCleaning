@@ -1,6 +1,6 @@
 <template>
   <div class="content">
-    <div class="row">
+    <div class="row">sss
       <div class="col">
         <div class="block block-rounded">
           <div class="block-header d-flex">
@@ -70,7 +70,7 @@
               </button>
             </div>
             <button class="btn btn-setting">
-              <SystemIcons class="interface-icons" :name="'setting'" :width="20"></SystemIcons>
+              <BaseSystemIcons class="interface-icons" :name="'setting'" :width="20"></BaseSystemIcons>
             </button>
           </div>
         </div>

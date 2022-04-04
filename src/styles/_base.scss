@@ -21,11 +21,14 @@
     background-color: white;
     border-radius: 10px;
     transition: 0.3s ease;
-    &:before {
+    &--square:before {
         content: "";
         display: block;
         position: relative;
         padding-bottom: 100%;
+    }
+    &--flow {
+        min-height: 200px;
     }
     &__images {
         position: absolute;

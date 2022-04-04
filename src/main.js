@@ -4,6 +4,7 @@ import './registerServiceWorker'
 import router from './router'
 import store from './store'
 import axios from 'axios'
+import baseComponents from '@/baseComponents.js'
 
 
 Vue.config.productionTip = false
@@ -16,8 +17,6 @@ if (token) {
   Vue.prototype.$http.defaults.headers.common['Authorization'] = token
 }
 
-import SystemIcons from "./components/SystemIcons.vue"
-
 
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { fas } from '@fortawesome/free-solid-svg-icons'
@@ -25,7 +24,7 @@ import { far } from '@fortawesome/free-regular-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 library.add(fas, far)
 Vue.component('font-awesome-icon', FontAwesomeIcon)
-Vue.component("SystemIcons", SystemIcons)
+
 
 
 import style from '@/styles/app.scss'

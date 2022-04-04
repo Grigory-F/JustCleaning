@@ -2,7 +2,7 @@
   <div class="drop-grid">
     <div class="box-images" v-for="image of arrayFiles" :key="image">
       <picture>
-        <img class="box-images__images" :src="image" />
+        <img class="box-images__images box-images__images--square" :src="image" />
       </picture>
       <div class="box-images__coverage">
         <div @click="deleteImage(image)" class="box-images__inner-icon">
