@@ -1,6 +1,6 @@
 <template>
   <div class="content">
-    <div class="row">sss
+    <div class="row">
       <div class="col">
         <div class="block block-rounded">
           <div class="block-header d-flex">
