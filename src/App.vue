@@ -1,17 +1,24 @@
 <template>
   <div id="app">
+    <!-- <Preloader v-show="this.$store.getters.getStatusPreload"/> -->
       <router-view></router-view>
   </div>
 </template>
 
 <script>
+/* import Preloader from '@/components/Preloader.vue' */
 import { mapGetters } from "vuex";
 export default {
+  components: {
+    /* Preloader, */
+  },
   data: () => ({
     info: null,
   }),
   beforeMount() {
     this.$store.dispatch("initTheme");
+    this.$store.dispatch("togglePreloader");
+    console.log("loading",this.$store.getters.getStatusPreload);
   },
   computed: {
     ...mapGetters({ theme: "getTheme" }),
@@ -33,6 +40,9 @@ export default {
       });
     });
   },
+  mounted() {
+    
+  }
 };
 </script>
 

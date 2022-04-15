@@ -2,22 +2,25 @@
   <div class="content">
     <div class="row">
       <div class="col">
-        <div class="block block-rounded">
+        <div class="block block--rounded">
           <div class="block-header d-flex">
-            <h3 class="block-title">useful articles</h3>
-            <div class="block-options d-flex"></div>
+            <h3 class="block-header__title">useful articles</h3>
+            <div class="red blue">
+              <div class="saww">dawawd</div>
+            </div>
+            <div class="block-header__options d-flex"></div>
           </div>
-          <div class="block-content block-content-full">
+          <div class="block-content block-content--full">
             <div class="row">
               <div class="col-12 col-md-6 mb-4" v-for="(item, index) of sers" :key="index">
                 <article class="d-flex flex-column">
-                  <div class="me-4 box-images box-images--flow mb-2">
+                  <router-link to="/auth" class="me-4 box-images box-images--flow mb-2">
                     <picture>
                       <!-- <source type="image/avif" :srcset="require('@/assets/kiska.avif')" />
                       <source type="image/webp" :srcset="require('@/assets/kiska.webp')" />-->
                       <img class="box-images__images" :src="require('@/assets/kiska.jpg')" alt />
                     </picture>
-                  </div>
+                  </router-link>
                   <div class>
                     <div class="d-flex justify-content-between mb-1">
                       <h3
@@ -29,7 +32,7 @@
                       </div>
                     </div>
                     <p
-                      class="fs-5 m-0"
+                      class="fs-6 m-0"
                     >{{ item.body }}</p>
                   </div>
                 </article>

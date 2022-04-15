@@ -2,10 +2,8 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import store from '../store/index.js'
 import FillWorkDay from '@/views/FillWorkDay'
-import Home from '@/views/Home'
+import Home from '@/views/Home.vue'
 import PageNotFound from '@/views/PageNotFound'
-import Authentication from '@/views/Authentication'
-import CreateArticles from '@/views/CreateArticles'
 import Base from '@/views/Base'
 
 Vue.use(VueRouter)
@@ -14,7 +12,7 @@ const routes = [
   {
     path: '/auth',
     name: 'Authentication',
-    component: Authentication,
+    component: () => import('@/views/Authentication'),
   },
   {
     path: '/',
@@ -38,7 +36,7 @@ const routes = [
       {
         path: '/create-article',
         name: 'CreateArticle',
-        component: CreateArticles,
+        component: () => import('@/views/CreateArticles'),
       },
     ]
   },

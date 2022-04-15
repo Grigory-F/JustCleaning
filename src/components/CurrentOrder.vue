@@ -61,7 +61,7 @@
                   :icon="['far', 'check-circle']"
                 />
               </button>
-              <button class="btn btn-setting d-flex">
+              <button class="btn btn-setting d-flex text-setting">
                 <span class="d-none d-sm-none d-md-inline">Cansel order</span>
                 <font-awesome-icon
                   class="d-sm-inline-block d-md-none fs-4 m-auto"

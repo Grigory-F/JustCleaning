@@ -2,16 +2,19 @@
   <main class="main-container">
     <Header />
     <router-view></router-view>
+    <Footer/>
   </main>
 </template>
 
 
 
 <script>
+import Footer from '@/components/TheFooter.vue'
 import Header from "@/components/TheHeader.vue";
 export default {
   components: {
     Header,
+    Footer,
   },
  computed: {
     isLoggedIn: function () {
