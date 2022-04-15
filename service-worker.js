@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/JustCleaning/precache-manifest.424742ade07f833fc5b0f98a75139584.js"
+  "/JustCleaning/precache-manifest.9aaa193afa51df84c2cd996407f2f853.js"
 );
 
 workbox.core.setCacheNameDetails({prefix: "just-cleaning"});

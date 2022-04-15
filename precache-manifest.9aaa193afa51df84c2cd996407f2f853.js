@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "a5dfb2630017f892e494",
+    "revision": "6567f3dfdd7f62173ed8",
     "url": "/JustCleaning/css/app.2d7d36bd.css"
   },
   {
@@ -12,12 +12,12 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/JustCleaning/img/kiska.11ef8997.jpg"
   },
   {
-    "revision": "8f917ae848fbf7bc0df88ff2d94b0830",
+    "revision": "d5391e1c2205ef02f4ad8510974d0b54",
     "url": "/JustCleaning/index.html"
   },
   {
-    "revision": "a5dfb2630017f892e494",
-    "url": "/JustCleaning/js/app.cedb4eac.js"
+    "revision": "6567f3dfdd7f62173ed8",
+    "url": "/JustCleaning/js/app.23a12d2c.js"
   },
   {
     "revision": "b42e8fd9aa3e8bd0b875",
