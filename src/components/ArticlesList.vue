@@ -5,14 +5,11 @@
         <div class="block block--rounded">
           <div class="block-header d-flex">
             <h3 class="block-header__title">useful articles</h3>
-            <div class="red blue">
-              <div class="saww">dawawd</div>
-            </div>
             <div class="block-header__options d-flex"></div>
           </div>
           <div class="block-content block-content--full">
             <div class="row">
-              <div class="col-12 col-md-6 mb-4" v-for="(item, index) of sers" :key="index">
+              <div class="col-12 col-md-6 mb-4" v-for="(item, index) of articles" :key="index">
                 <article class="d-flex flex-column">
                   <router-link to="/auth" class="me-4 box-images box-images--flow mb-2">
                     <picture>
@@ -23,17 +20,15 @@
                   </router-link>
                   <div class>
                     <div class="d-flex justify-content-between mb-1">
-                      <h3
-                        class="me-4 fs-4 m-0"
-                      >{{item.title }}</h3>
+                      <h3 class="me-4 fs-4 m-0">{{item.title}}</h3>
                       <div class="d-flex flex-column">
-                        <time class="text-muted fs-6 mb-1">29.06.2022</time>
+                        <time
+                          class="text-muted fs-6 mb-1 text-nowrap"
+                        >{{computedDate(item.date_write)}}</time>
                         <div class="text-success rounded-3 align-self-end fw-bold">NEW</div>
                       </div>
                     </div>
-                    <p
-                      class="fs-6 m-0"
-                    >{{ item.body }}</p>
+                    <p class="fs-6 m-0">{{item.body }}</p>
                   </div>
                 </article>
               </div>
@@ -46,19 +41,34 @@
 </template>
 
 <script>
+import Axios from "axios";
+
 export default {
   data: () => ({
-    sers: null,
+    articles: [],
   }),
   methods: {
-    async getData() {
-      const datas = await fetch("https://jsonplaceholder.typicode.com/posts/?_limit=4");
-      this.sers = await datas.json();
-console.log(this.sers);
+    computedDate: function (rawDate) {
+      return new Date(rawDate).toLocaleString("ru", {
+        year: "numeric",
+        month: "numeric",
+        day: "numeric",
+      });
     },
   },
   mounted() {
-    this.getData();
+    Axios.get("/api/articles")
+      .then((response) => {
+        this.articles = response.data;
+        console.log(this.articles);
+      })
+      .catch(function (error) {
+        // handle error
+        console.log(error);
+      });
+  },
+  computed: {
+    // геттер вычисляемого значения
   },
 };
 </script>

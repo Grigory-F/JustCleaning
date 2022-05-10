@@ -8,22 +8,16 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    showPreloader: false,
+    
   },
   mutations: {
-    changePreloader(state) {
-      state.showPreloader = !state.showPreloader
-    }
+    
   },
   getters: {
-    getStatusPreload: (state) => {
-      return state.showPreloader;
-  }
+    
   },
   actions: {
-    togglePreloader({ commit }) {
-      commit('changePreloader')
-    }
+    
   },
   modules: {
     auth: authModule,

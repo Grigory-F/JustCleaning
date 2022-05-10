@@ -2,12 +2,12 @@
   <div class="content">
     <div class="row">
       <div class="col">
-        <div class="block block-rounded">
+        <div class="block block--rounded">
           <div class="block-header d-flex">
-            <h3 class="block-title">CURRENT ORDER</h3>
-            <div class="block-options d-flex"></div>
+            <h3 class="block-header__title">CURRENT ORDER</h3>
+            <div class="block-header__options d-flex"></div>
           </div>
-          <form class="block-content block-content-full">
+          <form class="block-content block-content--full">
             <div class="row">
               <div class="col col-12 col-md-6">
                 <div class="inner-signs-order mb-3">
@@ -52,7 +52,7 @@
               </div>
             </div>
           </form>
-          <div class="block-content block-content-full d-flex justify-content-between">
+          <div class="block-content block-content--full d-flex justify-content-between">
             <div class="d-flex">
               <button class="btn btn-success me-2 d-flex">
                 <span class="d-none d-sm-none d-md-inline">Complete</span>

@@ -14,14 +14,14 @@
                   Welcome, please login, or
                   <a href="#">registration</a>
                 </p>
-                <form @submit.prevent="login">
+                <form @submit.prevent="loginOn">
                   <div class="pt-4">
                     <div class="mb-4">
                       <input
                         type="login"
                         class="form-control form-control-lg mb-2"
                         placeholder="Login"
-                        v-model="email"
+                        v-model="login"
                         aria-label="Login"
                       />
                       <span
@@ -67,15 +67,15 @@ import axios from "axios";
 export default {
   data() {
     return {
-      email: null,
+      login: null,
       password: null,
     };
   },
   methods: {
-      login: function () {
-        let email = this.email 
+      loginOn: function () {
+        let login = this.login 
         let password = this.password
-        this.$store.dispatch('login', { email, password })
+        this.$store.dispatch('login', { login, password })
        .then(() => this.$router.push('/'))
        .catch(err => console.log(err))
       }

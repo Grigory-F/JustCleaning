@@ -3,14 +3,14 @@
     <div class="table-responsive">
       <table class="table table-borderless table-striped table-responsive">
         <thead>
-          <tr>
+          <tr class="text-muted">
             <th scope="col">First</th>
             <th scope="col">Last</th>
             <th scope="col">Handle</th>
           </tr>
         </thead>
         <tbody class="table-striped">
-          <tr v-for="(item, index) of items" :key="index">
+          <tr v-for="(item, index) of items" :key="index" class="text-light">
             <td style="min-width: 250px" class="p-4">{{item.was_the}}</td>
             <td class="p-4">{{item.price}}</td>
             <td

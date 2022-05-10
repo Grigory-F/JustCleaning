@@ -1,7 +1,7 @@
 /* Overraides default value */
 $primary: #0d6efd;
 $secondary: #6c757d;
-$success: #198754;
+$success: #65A30D;
 $info: #0dcaf0;
 $warning: #ffc107;
 $danger: #dc3545;
@@ -12,7 +12,7 @@ $body-color: #334155;
 
 /* Components custom colors */
 
-$header: rgba(225, 225, 225, 0.75);
+$system-component: rgba(225, 225, 225, 0.75);
 $block-component: #f6f7f9;
 $block: white;
 
@@ -32,7 +32,7 @@ $theme-colors: (
     "body-color": $body-color,
 
     /* Custom */
-    "header": $header,
+    "system-component": $system-component,
     "block-component": $block-component,
     "block": $block,
     "setting": $setting,
