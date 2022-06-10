@@ -5,6 +5,7 @@
     /* Redefine theme colors for dark theme */
     $body-color: #dde2e9;
     $body-bg: #19222d;
+    $block-syst: white;
     /* Dark variants of components custom colors */
     $system-component: #1f2937;
     $block-component: #2a384b;
@@ -13,7 +14,15 @@
     $setting: #ebeef2;
     $interface-icons: #fff;
 
-    $theme-colors: (/* Custom */ "system-component": $system-component, "block-component": $block-component, "block": $block, "setting": $setting, "interface-icons": $interface-icons);
+    $theme-colors: (
+        "base": $block-syst, 
+        "body-color":$body-color,
+        "body-bg":$body-bg,
+        "system-component": $system-component, 
+        "block-component": $block-component, 
+        "block": $block, 
+        "setting": $setting, 
+        "interface-icons": $interface-icons);
 
     /* Redefine theme color variables */
     @each $color, $value in $theme-colors {

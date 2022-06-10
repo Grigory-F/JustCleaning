@@ -17,7 +17,7 @@
       >{{ !arrayFiles.length ? "Drop or select files" : '+'}}</span>
     </label>
     <!-- <div @click="onsubmit">Отправить</div>
-    <progress max="100" min="10"></progress> -->
+    <progress max="100" min="10"></progress>-->
   </div>
 </template>
 
@@ -48,15 +48,15 @@ export default {
           this.arrayFiles.push(event.target.result);
           this.arrayFiles.filter((item, index) => {
             console.log(item);
-            return this.arrayFiles.indexOf(item) == index;
+            return this.arrayFiles.indexOf(item) === index;
           });
         };
       });
     },
     async onsubmit() {
-      let formData = new FormData();
+      const formData = new FormData();
       this.unraw.forEach((thatFile, index) => {
-        let file = this.unraw[index];
+        const file = this.unraw[index];
         formData.append(thatFile.name, file);
       });
 

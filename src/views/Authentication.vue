@@ -63,28 +63,23 @@
 </template>
 
 <script>
-import axios from "axios";
+import axios from 'axios'
 export default {
-  data() {
+  data () {
     return {
       login: null,
-      password: null,
-    };
+      password: null
+    }
   },
   methods: {
-      loginOn: function () {
-        let login = this.login 
-        let password = this.password
-        this.$store.dispatch('login', { login, password })
-       .then(() => this.$router.push('/'))
-       .catch(err => console.log(err))
-      }
+    loginOn: function () {
+      const login = this.login
+      const password = this.password
+      this.$store.dispatch('login', { login, password })
+        .then(() => this.$router.push('/'))
+        .catch(err => console.log(err))
     }
-};
+  }
+}
 </script>
 
-<style lang="scss">
-.hero-static {
-  min-height: 100vh;
-}
-</style>

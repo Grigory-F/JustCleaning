@@ -80,12 +80,11 @@
 </template>
 
 <script>
-import ImageUploadPreview from "@/components/ImageUploadPreview.vue";
+import ImageUploadPreview from '@/components/ImageUploadPreview.vue'
 export default {
   components: {
-    ImageUploadPreview,
+    ImageUploadPreview
   },
-  props: ["goProper"],
-};
+  props: ['goProper']
+}
 </script>
-

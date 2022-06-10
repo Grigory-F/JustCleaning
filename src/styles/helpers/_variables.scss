@@ -15,9 +15,13 @@ $body-color: #334155;
 $system-component: rgba(225, 225, 225, 0.75);
 $block-component: #f6f7f9;
 $block: white;
+$block-syst: black;
 
 $setting: rgba(40, 53, 71, 0.3);
 $interface-icons: #2F3C4E;
+
+/* $input-group-addon-color: var(--bs-body-color); */
+
 
 $theme-colors: (
     "primary": $primary,
@@ -30,6 +34,7 @@ $theme-colors: (
     "dark": $dark,
     "body-bg": $body-bg,
     "body-color": $body-color,
+    "base":$block-syst,
 
     /* Custom */
     "system-component": $system-component,
@@ -38,6 +43,7 @@ $theme-colors: (
     "setting": $setting,
     "interface-icons": $interface-icons,
 );
+
 
 
 

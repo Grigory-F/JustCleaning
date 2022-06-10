@@ -26,37 +26,35 @@
 
 <script>
 export default {
-  data() {
+  data () {
     return {
       items: [
         {
-          name: { first: "John", last: "Doe" },
-          was_the: "Male",
+          name: { first: 'John', last: 'Doe' },
+          was_the: 'Male',
           price: 42,
           discount: 10,
-          status: "canselled",
+          status: 'canselled'
         },
         {
-          name: { first: "Jane", last: "Doe" },
+          name: { first: 'Jane', last: 'Doe' },
           was_the:
-            "Ipsum molestias autem earum at rerum, aliquam unde maxime modi cumquew.",
+            'Ipsum molestias autem earum at rerum, aliquam unde maxime modi cumquew.',
           price: 42,
           discount: 10,
-          status: "canselled",
+          status: 'canselled'
         },
         {
-          name: { first: "Jane", last: "Doe" },
+          name: { first: 'Jane', last: 'Doe' },
           was_the:
-            "Ipsum molestias autem earum at rerum, aliquam unde maxime modi cumquee.",
+            'Ipsum molestias autem earum at rerum, aliquam unde maxime modi cumquee.',
           price: 42,
           discount: 10,
-          status: "succses",
-        },
-      ],
-    };
-  },
-};
+          status: 'succses'
+        }
+      ]
+    }
+  }
+}
 </script>
 
-<style>
-</style>

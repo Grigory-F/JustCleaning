@@ -18,17 +18,14 @@
 
 <script>
 export default {
-    props: {
-        blockTitle: {
-            type: String
-        }
-    },
-data: () => ({
-    
-})
+  props: {
+    blockTitle: {
+      type: String
+    }
+  },
+  data: () => ({
+
+  })
 }
 </script>
 
-<style>
-
-</style>

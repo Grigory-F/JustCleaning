@@ -38,14 +38,14 @@
 </template>
 
 <script>
-import { mapGetters } from "vuex";
-import Popup from "./Popup.vue";
+import { mapGetters } from 'vuex'
+import Popup from './Popup.vue'
 export default {
   components: { Popup },
   methods: {
-    toggleTheme() {
-      this.$store.dispatch("toggleTheme");
-    },
-  },
-};
+    toggleTheme () {
+      this.$store.dispatch('toggleTheme')
+    }
+  }
+}
 </script>

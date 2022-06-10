@@ -12,7 +12,7 @@ const routes = [
   {
     path: '/auth',
     name: 'Authentication',
-    component: () => import('@/views/Authentication'),
+    component: () => import('@/views/Authentication')
   },
   {
     path: '/',
@@ -26,25 +26,25 @@ const routes = [
       {
         path: '/base',
         name: 'Base',
-        component: Base,
+        component: Base
       },
       {
         path: '/work-days',
         name: 'WorkDays',
-        component: FillWorkDay,
+        component: FillWorkDay
       },
       {
         path: '/create-article',
         name: 'CreateArticle',
-        component: () => import('@/views/CreateArticles'),
-      },
+        component: () => import('@/views/CreateArticles')
+      }
     ]
   },
 
   {
     path: '/404',
     name: 'PageNotFound',
-    component: PageNotFound,
+    component: PageNotFound
   },
   {
     path: '*',

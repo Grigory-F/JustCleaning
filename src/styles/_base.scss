@@ -7,6 +7,36 @@
     width: 100%;
     min-width: 320px;
     min-height: 100vh;
+    position: relative;
+}
+/* .ql-snow {
+  .ql-stroke {
+    stroke: var(--bs-body-color);
+  }
+  .ql-fill {
+    fill: var(--bs-body-color);
+  }
+  .ql-picker {
+    color: var(--bs-body-color);
+  }
+} */
+
+.vuecal__cell--disabled {
+  text-decoration: line-through;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.hero-static {
+  min-height: 100vh;
+}
+.vuecal {
+  &__event {
+    background-color: $primary;
+  }
+  &__event-time {
+    color: white;
+  }
+  
 }
 
 .interface-icons {

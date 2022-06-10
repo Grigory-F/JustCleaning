@@ -50,25 +50,23 @@
 <script>
 export default {
   props: {
-      show: {
-          type: Boolean,
-          required: false,
-      }
-},
-  data() {
-    return {
-      loading: true,
-    };
-  },
-  methods: {
-    hideDialog() {
-        this.$emit('update', false)
+    show: {
+      type: Boolean,
+      required: false
     }
   },
-  mounted() {
+  data () {
+    return {
+      loading: true
+    }
+  },
+  methods: {
+    hideDialog () {
+      this.$emit('update', false)
+    }
+  },
+  mounted () {
   }
-};
+}
 </script>
 
-<style>
-</style>

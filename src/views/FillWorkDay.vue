@@ -1,14 +1,29 @@
 <template>
-  <vue-cal
-    selected-date="2018-11-19"
-    :time-from="10 * 60"
-    :time-to="23 * 60"
-    :disable-views="['years', 'year', 'month']"
-    :editable-events="{ title: false, drag: false, resize: true, delete: true, create: true }"
-    :min-event-width="minEventWidth"
-    :events="events"
-    :on-event-create="onEventCreate"
-  >/></vue-cal>
+  <div class="content">
+    <p>You need to click on the day, and drag the time that you want to mark as working. After some time, this filled area will become a different color.</p>
+    <div class="row">
+      <div class="col">
+        <div class="block block--rounded">
+          <vue-cal
+            :time-from="10 * 60"
+            :time-to="23 * 60"
+            :disable-views="['years', 'year', 'month']"
+            :editable-events="eventsParams"
+            :min-event-width="minEventWidth"
+            :events="events"
+            :on-event-create="onEventCreate"
+            :min-date="new Date()"
+          ></vue-cal>
+          <div class="block-content block-content--full d-flex justify-content-between">
+            <div class="d-flex">
+              <div class="btn btn-primary me-3" @click="pushTimes">Добавить</div>
+              <div class="btn btn-primary">Редактировать</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </template>
 
 <script>
@@ -18,34 +33,18 @@ export default {
   components: { VueCal },
   data() {
     return {
+      datas: null,
       selectedEvent: null,
       showEventCreationDialog: false,
       minEventWidth: 0,
-      events: [
-        /* {
-          start: "2018-11-21 14:00",
-          end: "2018-11-21 22:00",
-          title: "A big thing",
-          content:
-            '<i class="v-icon material-icons">sentiment_satisfied_alt</i>',
-          class: "health",
-        },
-        {
-          start: "2018-11-21 16:00",
-          end: "2018-11-21 19:00",
-          title: "Another thing",
-          content: '<i class="v-icon material-icons">thumb_up</i>',
-          class: "blue-event",
-        },
-        {
-          start: "2018-11-20 18:30",
-          end: "2018-11-20 20:30",
-          title: "Crossfit",
-          content: '<i class="v-icon material-icons">fitness_center</i>',
-          class: "sport",
-        }, */
-      ],
-
+      eventsParams: {
+        title: false,
+        drag: false,
+        resize: true,
+        delete: true,
+        create: true,
+      },
+      events: [],
       /* specialHours: {
         1: dailyHours,
         2: dailyHours,
@@ -60,22 +59,30 @@ export default {
   },
   methods: {
     onEventCreate(event, deleteEventFunction) {
-      this.selectedEvent = event;
-      this.deleteEventFunction = deleteEventFunction;
-
+      this.events.push(event);
+      console.log(this.events);
       return event;
     },
+    /*  deleteEventFunctions() {
+      this.deleteEventFunction();
+    }, */
+    async pushTimes() {
+      this.$http
+        .get("https://jsonplaceholder.typicode.com/todos/")
+        .then((response) => console.log(response.data));
+    },
   },
-  /* watch: {
+  watch: {
     events() {
-      this.events.forEach(element => {
+      this.events.forEach((element) => {
         console.log(element);
       });
-    }
-  } */
+    },
+  },
+  computed: {},
 };
 </script>
 
 
-
-
+<style lang="scss">
+</style>

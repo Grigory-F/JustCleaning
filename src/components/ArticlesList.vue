@@ -41,37 +41,36 @@
 </template>
 
 <script>
-import Axios from "axios";
+import Axios from 'axios'
 
 export default {
   data: () => ({
-    articles: [],
+    articles: []
   }),
   methods: {
     computedDate: function (rawDate) {
-      return new Date(rawDate).toLocaleString("ru", {
-        year: "numeric",
-        month: "numeric",
-        day: "numeric",
-      });
-    },
+      return new Date(rawDate).toLocaleString('ru', {
+        year: 'numeric',
+        month: 'numeric',
+        day: 'numeric'
+      })
+    }
   },
-  mounted() {
-    Axios.get("/api/articles")
+  mounted () {
+    Axios.get('/api/articles')
       .then((response) => {
-        this.articles = response.data;
-        console.log(this.articles);
+        this.articles = response.data
+        console.log(this.articles)
       })
       .catch(function (error) {
         // handle error
-        console.log(error);
-      });
+        console.log(error)
+      })
   },
   computed: {
     // геттер вычисляемого значения
-  },
-};
+  }
+}
 </script>
 
-<style>
-</style>
+
