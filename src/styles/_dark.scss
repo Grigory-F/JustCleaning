@@ -22,9 +22,9 @@
         "block-component": $block-component, 
         "block": $block, 
         "setting": $setting, 
-        "interface-icons": $interface-icons);
+        "interface-icons": $interface-icons
+        );
 
-    /* Redefine theme color variables */
     @each $color, $value in $theme-colors {
         --#{$variable-prefix}#{$color}: #{$value};
     }

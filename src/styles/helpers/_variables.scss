@@ -1,3 +1,8 @@
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/utilities";
+
+
 /* Overraides default value */
 $primary: #0d6efd;
 $secondary: #6c757d;
@@ -9,13 +14,13 @@ $light: #f8f9fa;
 $dark: #212529;
 $body-bg: #ebeef2;
 $body-color: #334155;
+/* $inherit: inherit; */
 
 /* Components custom colors */
 
 $system-component: rgba(225, 225, 225, 0.75);
 $block-component: #f6f7f9;
 $block: white;
-$block-syst: black;
 
 $setting: rgba(40, 53, 71, 0.3);
 $interface-icons: #2F3C4E;
@@ -34,7 +39,6 @@ $theme-colors: (
     "dark": $dark,
     "body-bg": $body-bg,
     "body-color": $body-color,
-    "base":$block-syst,
 
     /* Custom */
     "system-component": $system-component,
@@ -44,16 +48,25 @@ $theme-colors: (
     "interface-icons": $interface-icons,
 );
 
-
-
-
-
-/* $theme-colors: (
-    "setting": rgba(40, 53, 71, 0.3),
-    "block": white,
-    "body-bg": #ebeef2,
-    "body-color": #334155,
-    "block-comp": #f6f7f9,
-    "header": rgba(225, 225, 225, 0.75),
-    "interface-icons": #2F3C4E,
+/* $utilities: map-merge(
+  $utilities,
+  ("color": (
+      property: color,
+      class: text,
+      values: map-merge(
+        $theme-colors,
+        (
+          "white": $white,
+          "muted": $text-muted,
+          "reset": inherit,
+        )
+      )
+    ),
+  )
 ); */
+
+
+
+
+
+

@@ -1,78 +1,53 @@
 <template>
-  <div>
-    <div class="content">
-      <div class="row">
-        <div class="col">
-          <div class="block block--rounded">
-            <div class="block-header d-flex">
-              <h3 class="block-header__title text-setting">CREATE ARTICLE</h3>
-              <div class="block-header__options d-flex"></div>
-            </div>
-            <div class="block-content block-content--full">
-              <div class="mb-4">
-                <label class="mb-1 text-muted">Title</label>
-                <input
-                  v-model="content.title"
-                  type="text"
-                  class="d-block text-area form-control text-color-sss bg-transparent"
-                />
-              </div>
-              <div class="mb-4">
-                <label class="mb-1 text-muted">Subtitle</label>
-                <input
-                  type="text"
-                  class="d-block text-area form-control bg-transparent text-body-color"
-                  v-model="content.subtitle"
-                />
-              </div>
-              <!-- <div class="mb-4">
-                <label class="mb-1 text-muted">Employee level</label>
-                <select class="d-block p-3 fs-5 w-100 bg-transparent text-body-bg">
-                  <option class value="all">All</option>
-                  <option class value="beginner">Beginner</option>
-                  <option class="text-primary" value="middle">Middle</option>
-                  <option class="text-success" value="profi">Profi</option>
-                </select>
-                <div>adwawdwad</div>
-              </div>-->
-              <label class="mb-1 text-muted">Content</label>
-              <VueEditor :editor-toolbar="customToolbar" v-model="content.content"></VueEditor>
-            </div>
-            <div class="block-content block-content--full d-flex justify-content-between">
-              <div class="d-flex">
-                <button class="btn btn-success me-2 d-flex" @click="createArticle">
-                  <span class="d-none d-sm-none d-md-inline">Create</span>
-                  <font-awesome-icon
-                    class="d-sm-inline-block d-md-none fs-4 m-auto"
-                    :icon="['far', 'check-circle']"
-                  />
-                </button>
-                <button class="btn btn-setting d-flex text-setting">
-                  <span class="d-none d-sm-none d-md-inline">Cansel</span>
-                  <font-awesome-icon
-                    class="d-sm-inline-block d-md-none fs-4 m-auto"
-                    :icon="['far', 'times-circle']"
-                  />
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
+  <BaseBlock blockHeader blockFooter :items="someArray">
+    <template #block-description>
+      <p>Some description...</p>
+    </template>
+
+    <template #block-title>CREATE ARTICLE</template>
+    <template #block-header-options>
+      <div class="btn btn-primary">awdadda</div>
+      <div class="btn btn-transparent">awdadda</div>
+    </template>
+    <template #block-content>
+      <div class="mb-4">
+        <label class="mb-1 text-muted">Title</label>
+        <input
+          v-model="content.title"
+          type="text"
+          class="d-block text-reset form-control bg-transparent"
+        />
       </div>
-    </div>
-    <div class="content">
-      <div class="row">
-        <div class="col" @click="logir">
-          <div class="block block--rounded">
-            <div class="block-content block-content--full">
-              <div>adwawdwad</div>
-            </div>
-            <div class="block-content block-content--full d-flex justify-content-between"></div>
-          </div>
-        </div>
+      <div class="mb-4">
+        <label class="mb-1 text-muted">Subtitle</label>
+        <input
+          type="text"
+          class="d-block text-reset form-control bg-transparent"
+          v-model="content.subtitle"
+        />
       </div>
-    </div>
-  </div>
+      <label class="mb-1 text-muted">Content</label>
+      <VueEditor :editor-toolbar="customToolbar" v-model="content.content"></VueEditor>
+    </template>
+    <template #block-footer>
+      <div class="d-flex">
+        <button class="btn btn-success me-2 d-flex" @click="createArticle">
+          <span class="d-none d-sm-none d-md-inline">Create</span>
+          <font-awesome-icon
+            class="d-sm-inline-block d-md-none fs-4 m-auto"
+            :icon="['far', 'check-circle']"
+          />
+        </button>
+        <button class="btn btn-setting d-flex text-setting">
+          <span class="d-none d-sm-none d-md-inline">Cansel</span>
+          <font-awesome-icon
+            class="d-sm-inline-block d-md-none fs-4 m-auto"
+            :icon="['far', 'times-circle']"
+          />
+        </button>
+      </div>
+    </template>
+  </BaseBlock>
 </template>
 
 <script>
@@ -83,6 +58,10 @@ export default {
   },
   data() {
     return {
+      someArray: [
+        1, 3, 4, 231, 23, 5345, 2323, 75687, 85, 46545645, 6786677565443,
+        434354,
+      ],
       customToolbar: [
         ["bold", "italic", "underline"],
         [{ list: "ordered" }, { list: "bullet" }],
@@ -98,7 +77,7 @@ export default {
     };
   },
   methods: {
-    createArticle() {
+    createArticle () {
       this.$http
         .post("/api/articles/", {
           data: { ...this.content },
@@ -132,6 +111,13 @@ export default {
   .ql-picker {
     color: var(--bs-body-color) !important;
   }
+  .ql-picker-options {
+    background-color: var(--bs-body-bg) !important;
+  }
 }
-
+/* .ql-picker {
+  .ql-picker-item {
+    color: var(--bs-body-color) !important;
+  }
+} */
 </style>
