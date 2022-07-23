@@ -63,7 +63,6 @@
 </template>
 
 <script>
-import axios from 'axios'
 export default {
   data () {
     return {
@@ -75,11 +74,13 @@ export default {
     loginOn: function () {
       const login = this.login
       const password = this.password
+      console.log(login, password)
       this.$store.dispatch('login', { login, password })
         .then(() => this.$router.push('/'))
         .catch(err => console.log(err))
     }
+  },
+  mounted () {
   }
 }
 </script>
-

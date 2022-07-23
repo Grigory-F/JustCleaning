@@ -37,18 +37,24 @@ const routes = [
         path: '/create-article',
         name: 'CreateArticle',
         component: () => import('@/views/CreateArticles')
+      },
+      {
+        path: '/article/:id',
+        name: 'ReadArticle',
+        component: () => import('@/views/ReadArticle')
       }
     ]
   },
 
+  
+  {
+    path: '*',
+    redirect: '/404'
+  },
   {
     path: '/404',
     name: 'PageNotFound',
     component: PageNotFound
-  },
-  {
-    path: '*',
-    redirect: '/404'
   }
 ]
 

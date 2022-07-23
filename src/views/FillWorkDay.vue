@@ -27,11 +27,11 @@
 </template>
 
 <script>
-import VueCal from "vue-cal";
-import "vue-cal/dist/vuecal.css";
+import VueCal from 'vue-cal'
+import 'vue-cal/dist/vuecal.css'
 export default {
   components: { VueCal },
-  data() {
+  data () {
     return {
       datas: null,
       selectedEvent: null,
@@ -42,9 +42,9 @@ export default {
         drag: false,
         resize: true,
         delete: true,
-        create: true,
+        create: true
       },
-      events: [],
+      events: []
       /* specialHours: {
         1: dailyHours,
         2: dailyHours,
@@ -55,34 +55,33 @@ export default {
         4: dailyHours,
         5: dailyHours,
       }, */
-    };
+    }
   },
   methods: {
-    onEventCreate(event, deleteEventFunction) {
-      this.events.push(event);
-      console.log(this.events);
-      return event;
+    onEventCreate (event, deleteEventFunction) {
+      this.events.push(event)
+      console.log(this.events)
+      return event
     },
     /*  deleteEventFunctions() {
       this.deleteEventFunction();
     }, */
-    async pushTimes() {
+    async pushTimes () {
       this.$http
-        .get("https://jsonplaceholder.typicode.com/todos/")
-        .then((response) => console.log(response.data));
-    },
+        .get('https://jsonplaceholder.typicode.com/todos/')
+        .then((response) => console.log(response.data))
+    }
   },
   watch: {
-    events() {
+    events () {
       this.events.forEach((element) => {
-        console.log(element);
-      });
-    },
+        console.log(element)
+      })
+    }
   },
-  computed: {},
-};
+  computed: {}
+}
 </script>
-
 
 <style lang="scss">
 </style>

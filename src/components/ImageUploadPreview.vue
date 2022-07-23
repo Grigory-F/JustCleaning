@@ -6,73 +6,94 @@
       </picture>
       <div class="box-images__coverage">
         <div @click="deleteImage(image)" class="box-images__inner-icon">
-          <SystemIcons :name="'close'" :width="30"></SystemIcons>
+          <BaseSystemIcons :name="'close'" :width="30"></BaseSystemIcons>
         </div>
       </div>
     </div>
-    <label class="drop-zone mb-0">
-      <input type="file" class="d-none" accept="image/*" @change="changeImages" multiple />
-      <span
+    <label
+      class="drop-zone mb-0"
+      :class="[paramDeterm ? ' opacity-25 cursor-default' : '']"
+    >
+      <input
+        type="file"
+        class="d-none"
+        accept="image/*"
+        @change="changeImages"
+        :multiple="!uploadConfig.onceImage"
+        :disabled="paramDeterm"
+      />
+      <div
+        v-if="!loading"
         class="drop-zone__sign fs-2 text-muted text-center"
-      >{{ !arrayFiles.length ? "Drop or select files" : '+'}}</span>
+      >{{ !arrayFiles.length ? "Drop or select files" : '+'}}</div>
+      <font-awesome-icon v-if="loading" :icon="['fas', 'circle-notch']" class="fa-spin" />
     </label>
-    <!-- <div @click="onsubmit">Отправить</div>
-    <progress max="100" min="10"></progress>-->
   </div>
 </template>
 
 <script>
-import axios from "axios";
+import axios from 'axios'
 export default {
-  data() {
+  props: {
+    uploadConfig: {
+      type: Object,
+      required: false
+    }
+  },
+  data () {
     return {
       arrayFiles: [],
       files: null,
       unraw: null,
-    };
+      loading: false
+    }
   },
   methods: {
-    /* async fething() {
-      const fethingg = await fetch("/api/posts");
-      const data = await fethingg.json();
-      console.table(data);
-    }, */
-    changeImages(e) {
-      this.unraw = e.target.files;
-      this.files = Array.from(e.target.files);
+    changeImages (e) {
+      this.loading = !this.loading
+      this.unraw = e.target.files
+      this.files = Array.from(e.target.files)
       this.files.forEach((file) => {
-        console.log(this.unraw.name);
-        const reader = new FileReader();
-        reader.readAsDataURL(file);
+        const reader = new FileReader()
+        reader.readAsDataURL(file)
         reader.onload = (event) => {
-          this.arrayFiles.push(event.target.result);
+          this.arrayFiles.push(event.target.result)
           this.arrayFiles.filter((item, index) => {
-            console.log(item);
-            return this.arrayFiles.indexOf(item) === index;
-          });
-        };
-      });
+            return this.arrayFiles.indexOf(item) === index
+          })
+        }
+      })
+      this.loading = !this.loading
     },
-    async onsubmit() {
-      const formData = new FormData();
+    async onsubmit () {
+      const formData = new FormData()
       this.unraw.forEach((thatFile, index) => {
-        const file = this.unraw[index];
-        formData.append(thatFile.name, file);
-      });
+        const file = this.unraw[index]
+        formData.append(thatFile.name, file)
+      })
 
       axios
-        .post("/api/upload", formData, {
+        .post('/api/upload', formData, {
           headers: {
-            "Content-Type": "multipart/form-data",
-          },
+            'Content-Type': 'multipart/form-data'
+          }
         })
         .then(() => {
-          console.log("SUCCESS!!");
-        });
+          console.log('SUCCESS!!')
+        })
     },
-    deleteImage(images) {
-      this.arrayFiles.splice(this.arrayFiles.indexOf(images), 1);
-    },
+    deleteImage (images) {
+      this.arrayFiles.splice(this.arrayFiles.indexOf(images), 1)
+    }
   },
-};
+  computed: {
+    paramDeterm: function () {
+      if (this.arrayFiles.length && this.uploadConfig.onceImage) {
+        return true
+      } else {
+        return false
+      }
+    }
+  }
+}
 </script>

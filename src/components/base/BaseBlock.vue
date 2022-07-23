@@ -11,8 +11,8 @@
             <h3 class="block-header__title">
               <slot name="block-title"></slot>
             </h3>
-            <div class="block-header__options d-flex">
-              <BaseButton variant="primary">
+            <div class="block-header__options d-flex" inner-icon>
+              <BaseButton @click="click" variant="setting" innerIcon icon="setting">
               </BaseButton>
               <div class=""></div>
               <slot name="block-header-options"></slot>
@@ -35,28 +35,32 @@
 
 <script>
 export default {
-  name: "BaseBlock",
+  name: 'BaseBlock',
   props: {
     blockFooter: {
       type: Boolean,
-      required: false,
+      required: false
     },
     blockHeader: {
       type: Boolean,
-      required: false,
+      required: false
     },
     items: {
       type: Array,
       required: false,
-      default: [1, 2, 3, 4, 5],
+      default: [1, 2, 3, 4, 5]
     },
     isLoading: {
       type: Boolean,
       required: false,
-      default: false,
-    },
+      default: false
+    }
   },
   data: () => ({}),
-};
+  methods: {
+    click () {
+      console.log('clocked')
+    }
+  }
+}
 </script>
-

@@ -2,7 +2,7 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import { authModule } from './store-module/authModule'
 import { themeModule } from './store-module/themeModule'
-import axios from 'axios'
+import http from '@/http-common.js'
 
 Vue.use(Vuex)
 
@@ -13,9 +13,7 @@ export default new Vuex.Store({
   mutations: {
 
   },
-  getters: {
-
-  },
+  getters: {},
   actions: {
 
   },

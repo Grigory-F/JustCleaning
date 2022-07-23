@@ -9,6 +9,12 @@
     min-height: 100vh;
     position: relative;
 }
+
+.wrapper-content {
+    flex: 1;
+}
+
+
 /* .ql-snow {
   .ql-stroke {
     stroke: var(--bs-body-color);
@@ -66,6 +72,8 @@
         width: 100%;
         height: 100%;
         object-fit: cover;
+        pointer-events: none;
+        user-select: none;
     }
 
     &__coverage {
@@ -104,15 +112,15 @@
 .drop-grid {
     display: grid;
     gap: 10px;
-    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-    grid-auto-rows: auto;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    grid-auto-rows: 150px;
 }
 
 .drop-zone {
     box-sizing: border-box;
     position: relative;
     width: 100%;
-    min-height: 100px;
+    min-height: 150px;
     background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='5' ry='5' stroke='%23333' stroke-width='2' stroke-dasharray='14%2c 8' stroke-dashoffset='17' stroke-linecap='square'/%3e%3c/svg%3e");
     border-radius: 5px;
     padding: 15px;
@@ -149,10 +157,15 @@
     margin: 0 auto;
     padding: 1rem 1rem 1px;
     overflow-x: visible;
+    
     @media screen and (min-width: 768px) {
         & {
             padding: 1.875rem 1.875rem 1px 1.875rem;
         }
+    }
+    &--full {
+        width: 100%;
+        margin: 0 auto;
     }
 }
 .header {

@@ -1,5 +1,4 @@
-
-
+import http from '@/http-common.js'
 export const authModule = {
   state: () => ({
     status: '',
@@ -32,12 +31,12 @@ export const authModule = {
     login ({ commit }, user) {
       return new Promise((resolve, reject) => {
         commit('auth_request')
-        this.$http.post('/auth/login', { data: user, method: 'POST' })
+        http.post('/auth/login', { data: user })
           .then(resp => {
             const token = resp.data.token
             const user = resp.data.user
             localStorage.setItem('token', token)
-            this.$http.defaults.headers.common.Authorization = token
+            http.defaults.headers.common.Authorization = token
             commit('auth_success', token, user)
             resolve(resp)
           })
@@ -50,10 +49,10 @@ export const authModule = {
       })
     },
     logout ({ commit }) {
-      return new Promise((resolve, reject) => {
+      return new Promise((resolve) => {
         commit('logout')
         localStorage.removeItem('token')
-        delete this.$http.defaults.headers.common.Authorization
+        delete http.defaults.headers.common.Authorization
         resolve()
       })
     }

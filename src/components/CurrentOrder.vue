@@ -29,7 +29,7 @@
                 </div>
                 <div class="inner-signs">
                   <span class="text-muted">Files</span>
-                  <ImageUploadPreview></ImageUploadPreview>
+                  <ImageUploadPreview :uploadConfig="uploadConfig"></ImageUploadPreview>
                 </div>
               </div>
 
@@ -82,6 +82,13 @@
 <script>
 import ImageUploadPreview from '@/components/ImageUploadPreview.vue'
 export default {
+  data () {
+    return {
+      uploadConfig: {
+        onceImage: false
+      }
+    }
+  },
   components: {
     ImageUploadPreview
   },
